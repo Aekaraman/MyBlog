@@ -1,0 +1,94 @@
+﻿@model BlogInstance.DataAccess.Entities.Article
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+@*<h1>Create</h1>*@
+<br/>
+<h3 class="offset-2"> Write a Story</h3>
+<hr />
+<div class="row">
+   
+    <div class="col-md-4 offset-1 ">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Title" class="control-label"></label>
+                <input asp-for="Title" class="form-control" />
+                <span asp-validation-for="Title" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Content" class="control-label"></label>
+                <textarea id="summernote" style="height:300px;" asp-for="Content" class="form-control"></textarea>
+                <span asp-validation-for="Content" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ThumbNail" class="control-label"></label>
+                <input asp-for="ThumbNail" class="form-control" />
+                <span asp-validation-for="ThumbNail" class="focus-input100" data-placeholder="Resim URL'si"></span>
+            </div>
+            @*<div class="form-group">
+                    <label asp-for="Date" class="control-label"></label>
+                    <input asp-for="Date" class="form-control" />
+                    <span asp-validation-for="Date" class="text-danger"></span>
+                </div>*@
+            @*<div class="form-group">
+                    <label asp-for="ViewsCount" class="control-label"></label>
+                    <input asp-for="ViewsCount" class="form-control" />
+                    <span asp-validation-for="ViewsCount" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="CommentCount" class="control-label"></label>
+                    <input asp-for="CommentCount" class="form-control" />
+                    <span asp-validation-for="CommentCount" class="text-danger"></span>
+                </div>*@
+            @*<div class="form-group">
+                    <label asp-for="UserID" class="control-label"></label>
+                    <select asp-for="UserID" class="form-control" asp-items="ViewBag.UserID"></select>
+                </div>*@
+
+            @*<div class="form-group">
+                    <label asp-for="CreatedDate" class="control-label"></label>
+                    <input asp-for="CreatedDate" class="form-control" />
+                    <span asp-validation-for="CreatedDate" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="ModifiedDate" class="control-label"></label>
+                    <input asp-for="ModifiedDate" class="form-control" />
+                    <span asp-validation-for="ModifiedDate" class="text-danger"></span>
+                </div>*@
+            @*<div class="form-group form-check">
+                    <label class="form-check-label">
+                        <input class="form-check-input" asp-for="IsDeleted" /> @Html.DisplayNameFor(model => model.IsDeleted)
+                    </label>
+                </div>*@
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="IsActive" /> @Html.DisplayNameFor(model => model.IsActive)
+                </label>
+            </div>
+            @*<div class="form-group">
+                    <label asp-for="CreatedByName" class="control-label"></label>
+                    <input asp-for="CreatedByName" class="form-control" />
+                    <span asp-validation-for="CreatedByName" class="text-danger"></span>
+                </div>*@
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+    <div class="col-1"></div>
+    <div class="col-6">
+        <img src="https://st4.depositphotos.com/22762472/38817/v/600/depositphotos_388179574-stock-illustration-write-your-own-story-motivational.jpg" width="800" height="600">
+    </div>
+
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

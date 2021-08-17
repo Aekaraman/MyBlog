@@ -1,0 +1,63 @@
+﻿@model IEnumerable<BlogInstance.DataAccess.Entities.Category>
+
+@{
+    ViewData["Title"] = "Index";
+
+}
+<h3>Topics</h3>
+
+
+<div class="col-lg-6">
+    <p>
+        <a asp-action="Create">Yeni Konu Ekle</a>
+    </p>
+
+    @using (Html.BeginForm("Index", "Categories", FormMethod.Get))
+    {
+
+        <div >
+            Filtre Giriniz : @Html.TextBox("searchString", ViewBag.currentFilter as string)
+            <input type="submit" class="buttontry btn-dark" value="Search" />
+        </div>
+    }
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.ActionLink("Name", "Index", new { sortOrder = ViewBag.TopicNameSortOrder })
+                </th>
+                @*<th>Yazılmış İçerik Sayısı</th>
+                    <th>Yazılmış İçeriklerin Okunma Sayısı</th>*@
+            </tr>
+        </thead>
+        <div class="flex-md-row mb-4 box-shadow h-xl-300">
+            @foreach (var item in Model)
+            {
+
+                <div class="mb-3 d-flex align-items-center">
+                    <img height="80" src="./assets/img/demo/blog5.jpg">
+                    <div class="pl-3">
+                        <h2 class="mb-2 h6 font-weight-bold">
+                            <a class="text-dark" href="./article.html">@item.CategoryName</a>
+                        </h2>
+                        <div class="cardedd offset-5">
+
+                            <div>
+                                <a asp-action="Edit" asp-route-id="@item.CategoryID">Edit</a> |
+                                <a asp-action="Details" asp-route-id="@item.CategoryID">Details</a> |
+                                <a asp-action="Delete" asp-route-id="@item.CategoryID">Delete</a>
+                            </div>
+
+                        </div>
+                        @*<div class="card-text text-muted small">
+                                @item.CategoryName
+                            </div>*@
+                        <small class="text-muted">@item.CreatedDate &middot; 5 min read</small>
+                    </div>
+                </div>
+            }
+
+        </div>
+    </table>
+</div>

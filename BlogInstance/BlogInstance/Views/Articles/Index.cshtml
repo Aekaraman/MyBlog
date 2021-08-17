@@ -1,0 +1,61 @@
+﻿@model IEnumerable<BlogInstance.DataAccess.Entities.Article>
+
+@{
+    ViewData["Title"] = "View";
+}
+
+<h3 class="offset-2">Articles</h3>
+<hr/>
+
+<div class="row">
+
+    <div class="col-1"></div>
+
+    <div class="col-8">
+        <p>
+            <a class="btn-danger" asp-action="Create">Write a Story</a>
+
+        </p>
+        @foreach (var item in Model)
+        {
+            <div class="row">
+                <div class="col-8">
+                    <div class="modal-footerbydem card-title bg-darkbydem fw-bolder text-center" style="margin-top:30px">
+
+
+                        <a class="card-title" asp-action="Read" asp-route-id="@item.UserID"><b>@item.Title </b></a>
+                       
+                        <div class="cardedd offset-5" >
+                            @if (item.UserID == item.User.UserID)
+                            {<div>
+                                    <a asp-action="Edit" asp-route-id="@item.ArticleID">Edit</a> |
+                                    <a asp-action="Details" asp-route-id="@item.ArticleID">Details</a> |
+                                    <a asp-action="Delete" asp-route-id="@item.ArticleID">Delete</a>
+                                </div>
+                            }
+                        </div>
+
+                    </div>
+                    <div class="modal-contentbydem lg135 tab-content" style="height:110px; overflow:auto">
+                        <p id="toggle">@Html.Raw(@item.Content)</p>
+
+
+                    </div>
+                    <div class="card-footer" style="margin-bottom:30px">
+                        <span class="card-link">Okunma Sayısı: @Html.DisplayFor(modelItem => item.ViewsCount)</span>
+
+                    </div>
+                </div>
+                <div class="col-4">
+                    @Html.DisplayFor(modelItem => item.User.UserThumbnail)
+                </div>
+            </div>
+
+        }
+
+    </div>
+
+    <div class="col-2"></div>
+    <div class="col-1"></div>
+</div>
+

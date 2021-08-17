@@ -1,0 +1,32 @@
+﻿@model List<Article>
+
+
+@foreach (var item in Model)
+{
+
+    <div class="col-4 ">
+        <div class="row" style="height:50px; ">
+            <div class="col-4 flex-fill ">
+                <img style="width: 50px; height: 50px;" src="@item.ThumbNail">
+            </div>
+            <div class="col-8 flex-fill" style="font-size: small">
+            <b> @item.CreatedByName</b> in <b>Toward Data</b>
+            </div>
+        </div>
+
+        <div class="row trendheight">
+
+            <b><a href="@item.Content">@item.Title</a></b>
+        
+            <div class="footer"style="font-size: smaller;">
+                <span class="card-link">Okunma sayısı : @item.ViewsCount</span>
+                <span class="card-link">@item.CreatedDate</span>
+
+            </div>
+        </div>
+    </div>
+    <br/>
+
+
+}
+

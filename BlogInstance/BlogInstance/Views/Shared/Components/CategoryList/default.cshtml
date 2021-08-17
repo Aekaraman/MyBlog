@@ -1,0 +1,10 @@
+﻿
+@model List<Category>
+
+<div class="row">
+    @foreach (var item in Model)
+    {
+        <a type="button" style="text-align: center; color: #fff;background-color: black;
+                                      border-color: white; font-size: small; background-color: black" class="btn btn-primary col-3" asp-area="" asp-controller="Categories" asp-action="Index">@item.CategoryName</a><br />
+    }
+</div>

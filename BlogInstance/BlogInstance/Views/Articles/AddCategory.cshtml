@@ -1,0 +1,22 @@
+﻿@model BlogInstance.ViewModels.CategoryListViewModel;
+
+@{Layout = "_Layout";
+}
+<form asp-action="AddCategory">
+    <button class="btn btn-default dropdown-toggle" type="button"
+            id="dropdownMenu1" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="true">
+        <i class="glyphicon glyphicon-tasks"><b> Topics</b> </i>
+    </button>
+    <ul class="dropdown-menu checkbox-menu allow-focus" style="width:300px;height:300px;overflow-y:scroll;position:absolute;" aria-labelledby="dropdownMenu1">
+        @for (int i = 0; i < Model.CategoryforArticle.Count; i++)
+        {
+            <li>
+                @Html.CheckBoxFor(model => model.CategoryforArticle[i].IsSelected)
+                <label>@Model.CategoryforArticle[i].CategoryName</label>
+                @Html.HiddenFor(model => model.CategoryforArticle[i].CategoryId)
+            </li>
+        }
+    </ul>
+    <input type="submit" value="AddCategory" />
+</form>

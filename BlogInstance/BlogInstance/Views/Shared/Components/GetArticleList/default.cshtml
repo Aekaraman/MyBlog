@@ -1,0 +1,60 @@
+﻿@model List<Article>
+
+
+
+
+
+
+@foreach (var item in Model)
+{
+    <!--<div class="row">
+        <div class="col-8">
+            @if (true)
+            {
+                <div class="modal-footerbydem">
+                    <a class="btn btn-outline-dark" asp-area="" asp-controller="Login" asp-action="ToTheLogin">@Html.Raw(item.Title) </a>
+                </div>
+            }
+            else
+            {
+                <div class="modal-footerbydem">
+                    <a class="btn btn-outline-dark" asp-area="" asp-controller="Articles" asp-action="Index">@Html.Raw(item.Title) </a>
+                </div>
+            }
+
+            <div class="modal-contentbydem lg135 tab-content" style=" overflow:auto">
+                <p id="toggle">@Html.Raw(@item.Content)</p>
+            </div>
+            <div class="card-footer">
+                <span class="card-link">@item.ViewsCount times readed</span>
+                <span class="card-link right-auto">2 min</span>
+
+            </div>
+        </div>
+        <div class="col-6 flex-fill card">-->
+            @*@item.User.Photo*@
+            <!--PHOTO
+        </div>
+    </div>-->
+   
+
+
+
+    <div class="mb-3 d-flex justify-content-between">
+        <div class="pr-3">
+            <h2 class="mb-1 h4 font-weight-bold">
+                <a class="text-dark" asp-area="" asp-controller="Articles" asp-action="Read">@Html.Raw(item.Title) Nearly 200 Great Barrier Reef coral species also live in the deep sea</a>
+            </h2>
+            <p>
+                There are more coral species lurking in the deep ocean that previously thought.
+            </p>
+            <div class="card-text text-muted small">
+                @item.CreatedByName in Tech
+            </div>
+            <small class="text-muted">@item.CreatedDate
+                &middot; 5 min read</small>
+        </div>
+        <img height="120" width="100" src="@item.ThumbNail">
+    </div>
+}
+

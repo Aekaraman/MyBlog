@@ -1,0 +1,26 @@
+﻿@model string 
+
+@{
+    var deger = Model;
+}
+
+
+<form asp-controller="Home" asp-action="SaveMail" method="post">
+    @*email*@
+    @*<input type="text" name="mailName" value="@Model" />*@
+   
+    @if (Model == "")
+    {
+        @*<span>Username:</span>*@
+
+        @*<input type="submit" value="Bağlan" />*@
+
+    }
+    else
+    {
+        <label asp-for="@Model">@Model</label>
+        <a asp-controller="Home" asp-action="Logout" class="btn btn-dark">Çıkış</a>
+
+    }
+
+</form>

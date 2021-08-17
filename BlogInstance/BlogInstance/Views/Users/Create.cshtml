@@ -1,0 +1,169 @@
+﻿@*@model BlogInstance.DataAccess.Entities.User
+
+    <body>
+        <div class="limiter">
+            <div class="container-login100">
+                <div class="wrap-login100 p-t-85 p-b-20">
+                    <form asp-action="Create" asp-controller="Users" class="login100-form validate-form">
+
+                        <span class="login100-form-title p-b-70">
+                            Sign up with email
+                        </span>
+                        <span class="login100-form-title p-b-70">
+                            Enter your email address to create an account.
+                        </span>
+
+                        <div class="wrap-input100 validate-input m-t-85 m-b-35" data-validate="Enter username">
+                            <input asp-for="UserEmail" class="input100" type="email">
+                            <span class="focus-input100" data-placeholder="Your Email"></span>
+                        </div>
+
+                        <div class="container-login100-form-btn">
+                            <button type="submit" class="login100-form-btn">
+                                Create
+                            </button>
+                        </div>
+
+                        <ul class="login-more p-t-190">
+                            <li class="m-b-8">
+                                <span class="txt1">
+                                    Forgot
+                                </span>
+
+                                <a href="#" class="txt2">
+                                    Username / Password?
+                                </a>
+                            </li>
+
+                            <li>
+                                <span class="txt1">
+                                    Don’t have an account?
+                                </span>
+
+                                <a href="#" class="txt2">
+                                    Sign up
+                                </a>
+                            </li>
+                        </ul>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </body>*@
+
+
+
+@*<script src="Login_v6/vendor/jquery/jquery-3.2.1.min.js"></script>
+
+    <script src="Login_v6/vendor/animsition/js/animsition.min.js"></script>
+
+    <script src="Login_v6/vendor/bootstrap/js/popper.js"></script>
+    <script src="Login_v6/vendor/bootstrap/js/bootstrap.min.js"></script>
+
+    <script src="Login_v6/vendor/select2/select2.min.js"></script>
+
+    <script src="Login_v6/vendor/daterangepicker/moment.min.js"></script>
+    <script src="Login_v6/vendor/daterangepicker/daterangepicker.js"></script>
+
+    <script src="Login_v6/vendor/countdowntime/countdowntime.js"></script>
+
+    <script src="Login_v6/js/main.js"></script>*@
+
+
+
+@*<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}*@
+
+
+@model BlogInstance.DataAccess.Entities.User
+
+@{
+    ViewData["Title"] = "Create";
+}
+<div class="row">
+    <div class="col-1"></div>
+    <div class="col-10 col-xl-5 col-lg-6 col-md-8 col-sm-10 mx-auto text-center form p-4">
+        <h3>Enter your email address to create an account.</h3>
+
+        <hr />
+        <div class="row">
+            <div class="col-md-4 mx-auto text-center">
+                <form asp-action="Create">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    @*<div class="form-group">
+                            <label asp-for="FirstName" class="control-label"></label>
+                            <input asp-for="FirstName" class="form-control" />
+                            <span asp-validation-for="FirstName" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="LastName" class="control-label"></label>
+                            <input asp-for="LastName" class="form-control" />
+                            <span asp-validation-for="LastName" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="UserName" class="control-label"></label>
+                            <input asp-for="UserName" class="form-control" />
+                            <span asp-validation-for="UserName" class="text-danger"></span>
+                        </div>*@
+                    <div class="form-group">
+                        <label asp-for="UserEmail" class="control-label"></label>
+                        <input asp-for="UserEmail" class="form-control" />
+                        <span asp-validation-for="UserEmail" class="text-danger"></span>
+                    </div>
+                    @* <div class="form-group">
+                            <label asp-for="Bio" class="control-label"></label>
+                            <input asp-for="Bio" class="form-control" />
+                            <span asp-validation-for="Bio" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="Photo" class="control-label"></label>
+                            <input asp-for="Photo" class="form-control" />
+                            <span asp-validation-for="Photo" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="Connections" class="control-label"></label>
+                            <input asp-for="Connections" class="form-control" />
+                            <span asp-validation-for="Connections" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="UserRole" class="control-label"></label>
+                            <select asp-for="UserRole" class="form-control"></select>
+                            <span asp-validation-for="UserRole" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="CreatedDate" class="control-label"></label>
+                            <input asp-for="CreatedDate" class="form-control" />
+                            <span asp-validation-for="CreatedDate" class="text-danger"></span>
+                        </div>
+                        <div class="form-group form-check">
+                            <label class="form-check-label">
+                                <input class="form-check-input" asp-for="IsActive" /> @Html.DisplayNameFor(model => model.IsActive)
+                            </label>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="ModifiedDate" class="control-label"></label>
+                            <input asp-for="ModifiedDate" class="form-control" />
+                            <span asp-validation-for="ModifiedDate" class="text-danger"></span>
+                        </div>*@
+                    <div class="form-group">
+                        <input type="submit" value="Create" class="btn btn-primary" />
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <div>
+            <a asp-action="Index">Back to List</a>
+        </div>
+
+        @section Scripts {
+            @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+        }
+    </div>
+    <div class="col-1"></div>
+</div>
